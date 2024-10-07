@@ -11,13 +11,23 @@ module.exports = {
     filename: '[name][contenthash].js',
     clean: true,
     assetModuleFilename: '[name][ext]',
+    publicPath:'/',
   },
   devtool: 'source-map',
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist'),
     },
+    headers: { 'Access-Control-Allow-Origin': '*' },
     port: 8080,
+    proxy: [
+      {
+        context: ['/api'], // Specify the context
+        target: 'http://localhost:3000', // Target API
+        secure: false, // If your API server is not using HTTPS
+      },
+    ],
+
     open: true,
     hot: true,
     compress: true,
@@ -52,7 +62,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Webpack App',
       filename: 'index.html',
-      template: 'src/template.html',
+      template: './src/template.html',
     }),
   ],
 };

@@ -1,12 +1,13 @@
 {
-  "name": "solo-project(tms)",
+  "name": "Solo-Project Soccer Pickup App",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
-    "start": "nodemon server.js"
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "start": "nodemon server.js",
+    "serve": "concurrently \"npm run dev\" \"npm start\""
   },
   "keywords": [],
   "author": "",

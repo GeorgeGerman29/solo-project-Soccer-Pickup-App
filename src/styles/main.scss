@@ -1,6 +1,10 @@
-$primary-color: #2fa8cc;
 $secondary-color: #f4f4f4;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+$primary-color: #28a745; // Soccer green
+$background-color: #f9f9f9; // Light background
+$border-radius: 8px;
+$card-bg-color: #f9f9f9; // Light background for cards
+$text-color: #333; // Text color
 * {
   box-sizing: border-box;
 }
@@ -10,4 +14,273 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.app-title {
+  // Title styling
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $background-color;
+  padding: 2rem;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 6rem auto;
+
+
+  .login-title {
+    font-size: 2rem;
+    color: $primary-color;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .login-form {
+    width: 100%;
+
+    .form-group {
+      margin-bottom: 1rem;
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        &:focus {
+          border-color: $primary-color;
+          outline: none;
+        }
+      }
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: $border-radius;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  }
+
+  .signup-prompt {
+    margin-top: 1rem;
+    text-align: center;
+
+    .signup-button {
+      background: none;
+      border: none;
+      color: $primary-color;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+//scss for GameList
+.game-list {
+  margin: 20px;
+
+  .create-game-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 20px 35px;
+    background-color:#007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.3rem;
+  
+
+    
+  }
+
+  .title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5rem;
+    color: $primary-color;
+  }
+
+  .games-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; // Space between cards
+    margin: 20px 0;
+
+    .game-card {
+      background-color: $card-bg-color;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-decoration: none;
+      color: $text-color;
+      transition: transform 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .game-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: $primary-color;
+      }
+
+      .game-details {
+        margin: 5px 0;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+ //Player List Component
+ $list-bg-color: #fff; // Background color for the list
+$list-border-color: #ddd; // Border color for the list items
+
+ .players-list {
+  background-color: $list-bg-color;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+
+  h2 {
+    text-align: center;
+    color: $primary-color;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none; // Remove default list styles
+    padding: 0;
+
+    li {
+      padding: 10px 15px;
+      border: 1px solid $list-border-color;
+      border-radius: 5px;
+      margin: 5px 0;
+      transition: background-color 0.3s, transform 0.3s;
+      color: $text-color;
+      cursor: pointer;
+
+    
+    }
+  }
+}
+
+//sign up page 
+$input-bg-color: #f4f4f4; // Background color for input fields
+$input-border-color: #ccc; // Border color for input fields
+$button-bg-color: $primary-color; // Button background color
+$form-bg-color: #fff;
+
+//createGame component 
+.create-game-form {
+  background-color: $form-bg-color;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px; // Max width for the form
+  margin: 50px auto; // Center the form vertically and horizontally
+
+  h1 {
+    text-align: center;
+    color: $primary-color; // Title color
+    margin-bottom: 20px; // Space below the title
+  }
+
+  label {
+    display: block; // Make labels block elements
+    margin-bottom: 5px; // Space below each label
+    color: #333; // Label color
+  }
+
+  input,
+  select {
+    width: 100%; // Full width inputs and selects
+    padding: 10px;
+    margin-bottom: 15px; // Space below each input
+    border: 1px solid $input-border-color;
+    border-radius: 5px;
+    background-color: $input-bg-color;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: $primary-color; // Change border color on focus
+      outline: none; // Remove outline
+    }
+  }
+
+  button {
+    width: 100%; // Full width button
+    padding: 10px;
+    background-color: $button-bg-color; // Button background color
+    color: white; // Button text color
+    border: none; // No border
+    border-radius: 5px; // Rounded corners
+    cursor: pointer; // Pointer on hover
+    transition: background-color 0.3s; // Smooth background change
+
+    
+  }
+}
+//gameDetails component
+
+.game-details-container {
+  max-width: 600px; // Set a max width for the container
+  margin: 50px auto; // Center the container
+  padding: 20px; // Add padding
+  border: 1px solid #ccc; // Border for the container
+  border-radius: 8px; // Rounded corners
+  background-color: #f9f9f9; // Light background color
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Subtle shadow
+
+  h1 {
+    color: #4CAF50; // Heading color
+    text-align: center; // Center the heading
+    margin-bottom: 20px; // Space below the heading
+  }
+
+  p {
+    font-size: 18px; // Font size for paragraphs
+    margin: 10px 0; // Space between paragraphs
+  }
+
+  .players-list {
+    margin-top: 20px; // Space above players list
+    border-top: 1px solid #ccc; // Top border
+    padding-top: 10px; // Padding above the players list
+
+    h2 {
+      color: #4CAF50; // Heading color for players list
+      text-align: center; // Center the players list heading
+      margin-bottom: 10px; // Space below the heading
+    }
+  }
 }
